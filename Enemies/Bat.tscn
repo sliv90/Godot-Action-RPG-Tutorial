@@ -66,8 +66,9 @@ position = Vector2( 0, -13 )
 shape = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-max_health = 3
+max_health = 2
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="no_heatlh" from="Stats" to="." method="_on_Stats_no_heatlh"]
 
 [editable path="HurtBox"]
