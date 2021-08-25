@@ -1,9 +1,10 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Combat/HitBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Combat/SwordHitBox.gd" type="Script" id=4]
+[ext_resource path="res://Combat/EnvHitBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.09191
@@ -331,7 +332,7 @@ tracks/2/keys = {
 "values": [ 90.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitBoxPivot/SwordHitBox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitBoxPivot/EnvHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -385,7 +386,7 @@ tracks/2/keys = {
 "values": [ 180.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitBoxPivot/SwordHitBox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitBoxPivot/EnvHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -439,7 +440,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitBoxPivot/SwordHitBox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitBoxPivot/EnvHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -493,7 +494,7 @@ tracks/2/keys = {
 "values": [ -90.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitBoxPivot/SwordHitBox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitBoxPivot/EnvHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -697,6 +698,10 @@ graph_offset = Vector2( -523.646, -54 )
 [sub_resource type="CapsuleShape2D" id=46]
 height = 12.0
 
+[sub_resource type="CapsuleShape2D" id=47]
+radius = 7.02355
+height = 4.71409
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
@@ -708,10 +713,9 @@ __meta__ = {
 position = Vector2( 0, -10 )
 texture = ExtResource( 1 )
 hframes = 60
-frame = 45
+frame = 55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.795, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -744,10 +748,10 @@ parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="HitBoxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = -1.5708
+rotation = 1.5708
 
 [node name="SwordHitBox" parent="HitBoxPivot" instance=ExtResource( 3 )]
-position = Vector2( 15, 0 )
+position = Vector2( 15, -4.54747e-12 )
 collision_mask = 8
 script = ExtResource( 4 )
 
@@ -755,4 +759,14 @@ script = ExtResource( 4 )
 shape = SubResource( 46 )
 disabled = true
 
+[node name="EnvHitBox" parent="HitBoxPivot" instance=ExtResource( 5 )]
+position = Vector2( 10, 0 )
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="HitBoxPivot/EnvHitBox" index="0"]
+rotation = 1.5708
+shape = SubResource( 47 )
+disabled = true
+
 [editable path="HitBoxPivot/SwordHitBox"]
+[editable path="HitBoxPivot/EnvHitBox"]
