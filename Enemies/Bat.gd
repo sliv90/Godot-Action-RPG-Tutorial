@@ -17,6 +17,7 @@ var state  = IDLE
 onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
+onready var hurtBox = $HurtBox
 
 func _ready():
 	print(stats.max_health)
@@ -45,7 +46,7 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
-				var direction = (player.global_position - global_position).normalized()
+				var direction = global_position.direction_to(player.global_position)
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 				sprite.flip_h = velocity.x < 0
 			else:
@@ -60,6 +61,7 @@ func seek_player():
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 120
+	hurtBox.create_hit_effect()
 
 func _on_Stats_no_heatlh():
 	create_death_effect()
