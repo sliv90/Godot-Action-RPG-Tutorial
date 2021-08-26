@@ -3,17 +3,22 @@ extends Control
 var hearts = 4 setget set_hearts
 var max_hearts = 4 setget set_max_hearts
 
-onready var label = $Label
+onready var heartUIFull = $HeartUIFull
+onready var heartUIEmpty = $HeartUIEmpty
+onready var textureWidth = heartUIFull.texture.get_size().x
 
 func _ready():
 	self.max_hearts = PlayerStats.max_health
 	self.hearts = PlayerStats.health
-	label.text = "HP = " + str(hearts)
-
+	PlayerStats.connect("health_changed", self, "set_hearts")
+	PlayerStats.connect("max_health_changed", self, "set_max_hearts")
+	
 func set_hearts(value):
 	hearts = value
-	label.text = "HP = " + str(hearts)
+	if heartUIFull != null:
+		heartUIFull.rect_size.x = hearts * textureWidth
 	
 func set_max_hearts(value):
 	hearts = value
-	PlayerStats.connect("health_changed", self, "set_hearts")
+	if heartUIEmpty != null:
+		heartUIEmpty.rect_size.x = hearts * textureWidth
