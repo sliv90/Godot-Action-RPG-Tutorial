@@ -22,6 +22,7 @@ onready var swordHitbox = $HitBoxPivot/SwordHitBox
 onready var hurtBox = $HurtBox
 
 func _ready():
+	randomize()
 	stats.connect("no_heatlh", self, "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
