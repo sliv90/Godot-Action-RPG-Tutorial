@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Combat/EnvHitBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Combat/HurtBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=7]
+[ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=8]
+[ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=9]
+[ext_resource path="res://Player/WhiteColorShader.tres" type="Material" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.09191
@@ -65,6 +68,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "AttackLeft"
@@ -118,6 +135,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -173,6 +204,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "AttackUp"
@@ -226,6 +271,24 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0.1, 0.101 )
 }
 
 [sub_resource type="Animation" id=6]
@@ -345,6 +408,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "RollLeft"
@@ -398,6 +475,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=12]
@@ -453,6 +544,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "RollUp"
@@ -506,6 +611,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=14]
@@ -708,6 +827,38 @@ height = 4.71409
 radius = 4.66586
 height = 6.21447
 
+[sub_resource type="Animation" id=51]
+resource_name = "Start"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
@@ -719,10 +870,11 @@ __meta__ = {
 texture = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 10 )
 position = Vector2( 0.5, -10 )
 texture = ExtResource( 1 )
 hframes = 60
-frame = 55
+frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -757,7 +909,7 @@ parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="HitBoxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 1.5708
+rotation = -1.5708
 
 [node name="SwordHitBox" parent="HitBoxPivot" instance=ExtResource( 3 )]
 position = Vector2( 15, -4.54747e-12 )
@@ -784,7 +936,16 @@ collision_mask = 2
 position = Vector2( 0, -12 )
 shape = SubResource( 48 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 51 )
+anims/Stop = SubResource( 52 )
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
+[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 
 [editable path="HitBoxPivot/SwordHitBox"]
 [editable path="HitBoxPivot/EnvHitBox"]

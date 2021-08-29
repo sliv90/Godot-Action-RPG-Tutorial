@@ -20,6 +20,7 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var hurtBox = $HurtBox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
+onready var animationPlayer = $AnimationPlayer
 
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
@@ -55,7 +56,7 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
-				accelerate_towards_point(global_position, delta)
+				accelerate_towards_point(player.global_position, delta)
 			else:
 				state = IDLE
 				
@@ -84,7 +85,14 @@ func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 120
 	hurtBox.create_hit_effect()
+	hurtBox.start_invincibility(0.3)
 
 func _on_Stats_no_heatlh():
 	create_death_effect()
 	queue_free()
+
+func _on_HurtBox_invincibility_started():
+	animationPlayer.play("Start")
+
+func _on_HurtBox_invincibility_ended():
+	animationPlayer.play("Stop")
